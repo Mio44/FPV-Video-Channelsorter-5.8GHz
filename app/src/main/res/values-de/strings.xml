@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="add_pilot">Pilot hinzufügen</string>
+    <string name="max_distance">max Abstand</string>
+    <string name="min_distance">min Abstand</string>
+    <string name="band">Band:</string>
+    <string name="channel">Kanal:</string>
+    <string name="frequency">Frequenz:</string>
+    <string name="cancel">Abbrechen</string>
+    <string name="change_pilot_name">Piloten Namen ändern:</string>
+    <string name="ok">OK</string>
+    <string name="about">Über</string>
+    <string name="frequency_overview">Frequenzübersicht</string>
+    <string name="title_activity_about">Über</string>
+    <string name="email">felixfflesch@gmail.com</string>
+    <string name="about_text">Die App ins komplett kostenlos! Wenn du deine Ideen mit einbringen möchstest schreibe eine Email an:</string>
+    <string name="save">Konfiguration speichern</string>
+    <string name="saved">Konfiguration Laden</string>
+    <string name="title_activity_frequency_overview">Frequenzübersicht</string>
+    <string name="set_name_for_save">Name für diese Konfiguration</string>
+    <string name="title_activity_load_configuration">Konfiguration laden</string>
+    <string name="config_loaded">Konfiguration geladen:</string>
+    <string name="config_saved">Konfiguration gespeichert</string>
+    <string name="name_can_not_be_empty">Name darf nicht leer sein! Versuche es nochmal.</string>
+    <string name="delete_config">Konfiguration löschen?</string>
+    <string name="config_deleted">Konfiguration gelöscht</string>
+    <string name="no_config">Noch keine Konfiguration gespeichert</string>
+    <string name="load_config_tipps">Tippen um Konfiguration zu laden. Lange drücken um zu löschen.</string>
+    <string name="version_2.0.1_message_2">-Die aktuelle Konfiguration kann jetzt im Menü gespeichert und geladen werden</string>
+    <string name="version_2.0.1_message_3">-Neues Frequenzband</string>
+    <string name="version_2.0.1_message_4">-Feste Frequenz für einen Pilot</string>
+    <string name="version_2.0.1_message_5">-Neues Design</string>
+    <string name="version_2.0.1_message_6">Bugfixes in der Frequenzberechnung</string>
+    <string name="help_1">-Wähle die Bänder für jeden Piloten</string>
+    <string name="help_2">-Wische nach rechts oder links um einen Piloten zu löschen</string>
+    <string name="help_3">-Klicke fixed um eine feste Frequenz für einen Piloten zu setzen</string>
+    <string name="help_4">-Tippe auf den Namen eines Piloten um diesen zu ändern</string>
+    <string name="help_5">-Speichere und lade Konfigurationen vom Menü</string>
+    <string name="overwrite">Überschreiben</string>
+    <string name="name_exists">Der Name existiert bereits! Alte Konfiguration überschreiben?</string>
+    <string name="help">Hilfe</string>
+    <string name="frequency_range">Frequenz Bereich</string>
+    <string name="no_values_with_given_frequency_range">Keine Frequenzen möglich mit aktuellem Frequenzbereich</string>
+    <string name="close">Close</string>
+    <string name="help_6">-Setze den Frequenzbereich im Menü</string>
+    <string name="pilot_map_ad">Wenn dir der Channelsorter gefällt, wird dir bestimmt auch meine neue Webseite Pilot Map gefallen. Eine Weltweite Karte für FPV Piloten!</string>
+    <string name="pilot_map_visit">Pilot Map öffnen</string>
+    <string name="version_2.1.0_message_2">-Die aktuelle Konfiguration kann jetzt im Menü gespeichert und geladen werden</string>
+    <string name="version_2.1.0_message_3">-Neues Frequenzband</string>
+    <string name="version_2.1.0_message_4">-Feste Frequenz für einen Pilot</string>
+    <string name="version_2.1.0_message_5">-Neues Design</string>
+    <string name="version_2.1.0_message_6">-Es kann jetzt der Frequenzbereich im Menü eingestellt werden</string>
+    <string name="version_2_1_0_pilotmap_1">Pilot Map</string>
+</resources>

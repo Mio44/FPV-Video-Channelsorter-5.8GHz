@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_about"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="16dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="florian.felix.flesch.fpvvideochannelsorter.About"
+    tools:showIn="@layout/activity_about">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/about_text"
+        android:id="@+id/tv_about_abouttext"
+        android:gravity="center_horizontal"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="FPV Channelsorter 5.8GHz"
+        android:gravity="center_horizontal"
+        android:id="@+id/tv_about_appname"
+        android:layout_marginBottom="70dp"
+        android:layout_above="@+id/tv_about_abouttext"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/email"
+        android:id="@+id/textView15"
+        android:gravity="center_horizontal"
+        android:textStyle="bold"
+        android:autoLink="email"
+        android:layout_below="@+id/tv_about_abouttext"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_about_version"
+        android:text="Version x.x.x"
+        android:layout_above="@+id/tv_about_madeby"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="5dp"/>
+
+    <TextView android:text="Made by Felix-Florian Flesch" android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_about_madeby"
+        android:gravity="center_horizontal"
+        android:textStyle="bold"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+
+</RelativeLayout>

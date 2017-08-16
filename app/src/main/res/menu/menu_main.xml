@@ -1,0 +1,40 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="florian.felix.flesch.fpvvideochannelsorter.MainActivity">
+    <item
+        android:id="@+id/action_frequency_overview"
+        android:orderInCategory="100"
+        android:title="@string/frequency_overview"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/action_save"
+        android:orderInCategory="100"
+        android:title="@string/save"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_saved"
+        android:orderInCategory="100"
+        android:title="@string/saved"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_frequency_range"
+        android:orderInCategory="100"
+        android:title="@string/frequency_range"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_help"
+        android:orderInCategory="100"
+        android:title="@string/help"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_about"
+        android:orderInCategory="100"
+        android:title="@string/about"
+        app:showAsAction="never" />
+</menu>

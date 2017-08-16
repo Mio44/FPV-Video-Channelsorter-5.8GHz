@@ -1,0 +1,58 @@
+<resources>
+    <string name="app_name" translatable="false">Channelsorter</string>
+    <string name="frequency_overview">Frequency Overview</string>
+    <string name="about">About</string>
+    <string name="help">Help</string>
+
+    <string name="save">Save configuration</string>
+    <string name="saved">Load configurations</string>
+    <string name="frequency_range">Frequency range</string>
+    <string name="set_name_for_save">Set name for this configuration</string>
+    <string name="config_loaded">Configuration loaded:</string>
+    <string name="config_saved">Configuration saved</string>
+    <string name="config_deleted">Configuration deleted</string>
+    <string name="name_can_not_be_empty">Name can not be empty! Try Again.</string>
+    <string name="delete_config">Delete configuration?</string>
+    <string name="no_config">No config saved yet</string>
+    <string name="load_config_tipps">Tap to load config. Long press to delete.</string>
+    <string name="name_exists">The name already exists! Overwrite old configuration?</string>
+
+    <string name="version_2.1.0_message_1" translatable="false">Version 2.1</string>
+    <string name="version_2.1.0_message_2">-You can now save and load your current configuration in the menu</string>
+    <string name="version_2.1.0_message_3">-New frequency band (low band)</string>
+    <string name="version_2.1.0_message_4">-You can set a fixed channel for a pilot</string>
+    <string name="version_2.1.0_message_5">-New design</string>
+    <string name="version_2.1.0_message_6">-You can now select a frequency range from the menu</string>
+
+    <string name="close">Close</string>
+
+    <string name="help_1">-Select the bands for each pilot</string>
+    <string name="help_2">-Swipe left or right to delete a pilot</string>
+    <string name="help_3">-Select fixed to set a fixed frequency for a pilot</string>
+    <string name="help_4">-Tap the name of a pilot to change it</string>
+    <string name="help_5">-Save and load Configurations from the menu</string>
+    <string name="help_6">-Set the Frequency range from the menu</string>
+
+    <string name="about_text">The App is completely free! If you want to contribute your ideas please write an email to:</string>
+    <string name="email">felixfflesch@gmail.com</string>
+    <string name="made_by" translatable="false">Made by Felix-Florian Flesch</string>
+
+    <string name="add_pilot">Add Pilot</string>
+    <string name="max_distance">max distance</string>
+    <string name="min_distance">min distance</string>
+
+    <string name="band">Band:</string>
+    <string name="channel">Channel:</string>
+    <string name="frequency">Frequency:</string>
+
+    <string name="change_pilot_name">Change Pilot name:</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+
+    <string name="no_values_with_given_frequency_range">No Channels possible with current frequency range</string>
+
+    <string name="title_activity_about">About</string>
+    <string name="title_activity_frequency_overview">Frequency Overview</string>
+    <string name="title_activity_load_configuration">Load Configuration</string>
+    <string name="overwrite">Overwrite</string>
+</resources>

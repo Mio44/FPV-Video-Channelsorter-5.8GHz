@@ -1,0 +1,44 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent" >
+
+    <NumberPicker
+        android:id="@+id/numberPickerMin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/numberPickerMax"
+        android:layout_alignBottom="@+id/numberPickerMax"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="120dp"
+        android:layout_marginStart="120dp"/>
+
+    <NumberPicker
+        android:id="@+id/numberPickerMax"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="20dp"
+        android:layout_toEndOf="@+id/numberPickerMin"
+        android:layout_toRightOf="@+id/numberPickerMin"
+        android:paddingLeft="0dp"/>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Min"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/numberPickerMin"
+        android:layout_alignStart="@+id/numberPickerMin"/>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Max"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/numberPickerMax"
+        android:layout_alignStart="@+id/numberPickerMax"/>
+
+</RelativeLayout>
