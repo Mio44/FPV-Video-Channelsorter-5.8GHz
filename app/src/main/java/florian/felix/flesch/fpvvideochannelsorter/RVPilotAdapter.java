@@ -25,15 +25,11 @@
 package florian.felix.flesch.fpvvideochannelsorter;
 
 import android.content.DialogInterface;
-import android.content.res.Resources;
 import android.os.AsyncTask;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.text.InputType;
-import android.util.AndroidException;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,11 +41,11 @@ import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import java.io.Console;
 import java.util.ArrayList;
 
+import florian.felix.flesch.fpvvideochannelsorter.sorterlogic.Band;
+import florian.felix.flesch.fpvvideochannelsorter.sorterlogic.Frequency;
 import florian.felix.flesch.fpvvideochannelsorter.sorterlogic.Sorter;
 
 public class RVPilotAdapter extends RecyclerView.Adapter<RVPilotAdapter.PilotViewHolder>
@@ -57,10 +53,12 @@ public class RVPilotAdapter extends RecyclerView.Adapter<RVPilotAdapter.PilotVie
     static ArrayList<Pilot> data;
     TextView tvMinDif;
     TextView tvMaxDif;
+    TextView tvIMD;
 	ProgressBar pbSorter;
 	Calc currentClacThread;
 	private int minFrequency;
 	private int maxFrequency;
+    private boolean considerIMD;
 
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
@@ -105,13 +103,15 @@ public class RVPilotAdapter extends RecyclerView.Adapter<RVPilotAdapter.PilotVie
     }
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public RVPilotAdapter(ArrayList<Pilot> pilots, int minFrequency, int maxFrequency, TextView tvMinDif, TextView tvMaxDif, ProgressBar pbSorter)
+    public RVPilotAdapter(ArrayList<Pilot> pilots, int minFrequency, int maxFrequency, boolean considerIMD, TextView tvMinDif, TextView tvMaxDif, TextView tvIMD, ProgressBar pbSorter)
     {
         this.data = pilots;
 		this.minFrequency = minFrequency;
 		this.maxFrequency = maxFrequency;
+        this.considerIMD = considerIMD;
         this.tvMinDif = tvMinDif;
         this.tvMaxDif = tvMaxDif;
+        this.tvIMD = tvIMD;
 		this.pbSorter = pbSorter;
     }
 
@@ -132,7 +132,7 @@ public class RVPilotAdapter extends RecyclerView.Adapter<RVPilotAdapter.PilotVie
         holder.cbR.setChecked(this.data.get(position).getBandR());
         holder.cbD.setChecked(this.data.get(position).getBandD());
         holder.swFixed.setChecked(this.data.get(position).isFixed());
-        holder.spChannel.setSelection(this.data.get(position).getFiexedChannel()-1);
+        holder.spChannel.setSelection(this.data.get(position).getFixedChannel()-1);
         if(this.data.get(position).isFixed()) {
             holder.tvspChannel.setVisibility(View.VISIBLE);
             holder.spChannel.setVisibility(View.VISIBLE);
@@ -269,12 +269,14 @@ public class RVPilotAdapter extends RecyclerView.Adapter<RVPilotAdapter.PilotVie
             public void onClick(View v) {
                 data.get(position).setFixed(!data.get(position).isFixed());
                 if(data.get(position).isFixed()) {
-                    data.get(position).setBandA(true);
-                    data.get(position).setBandB(false);
-                    data.get(position).setBandE(false);
-                    data.get(position).setBandF(false);
-                    data.get(position).setBandR(false);
-                    data.get(position).setBandD(false);
+                    Frequency freq = data.get(position).getFrequency();
+                    data.get(position).setBandA(freq == null || Band.BAND_A.equals(freq.getBand()));
+                    data.get(position).setBandB(freq != null && Band.BAND_B.equals(freq.getBand()));
+                    data.get(position).setBandE(freq != null && Band.BAND_E.equals(freq.getBand()));
+                    data.get(position).setBandF(freq != null && Band.BAND_F.equals(freq.getBand()));
+                    data.get(position).setBandR(freq != null && Band.BAND_R.equals(freq.getBand()));
+                    data.get(position).setBandD(freq != null && Band.BAND_L.equals(freq.getBand()));
+                    data.get(position).setFixedChannel(freq != null ? freq.getChannel() : 1);
                 }
 
                 sortChannels();
@@ -328,10 +330,11 @@ public class RVPilotAdapter extends RecyclerView.Adapter<RVPilotAdapter.PilotVie
 		return data;
 	}
 
-	public void setData(ArrayList<Pilot> data, int minFrequency, int maxFrequency) {
+	public void setData(ArrayList<Pilot> data, int minFrequency, int maxFrequency, boolean considerIMD) {
 		RVPilotAdapter.data = data;
 		this.minFrequency = minFrequency;
 		this.maxFrequency = maxFrequency;
+        this.considerIMD = considerIMD;
 		sortChannels();
 	}
 
@@ -361,7 +364,7 @@ public class RVPilotAdapter extends RecyclerView.Adapter<RVPilotAdapter.PilotVie
 				pilotCopy.add(data.get(i).getCopy());
 			}
 
-			this.currentClacThread = new Calc(pilotCopy, this.minFrequency, this.maxFrequency, this);
+			this.currentClacThread = new Calc(pilotCopy, this.minFrequency, this.maxFrequency, this.considerIMD, this);
 			this.currentClacThread.execute();
         }
         else
@@ -371,9 +374,10 @@ public class RVPilotAdapter extends RecyclerView.Adapter<RVPilotAdapter.PilotVie
         }
     }
 
-    public void setFrequencyRange(int min, int max) {
+    public void setFrequencyRange(int min, int max, boolean considerIMD) {
 		this.minFrequency = min;
 		this.maxFrequency = max;
+        this.considerIMD = considerIMD;
 		sortChannels();
     }
 
@@ -385,6 +389,10 @@ public class RVPilotAdapter extends RecyclerView.Adapter<RVPilotAdapter.PilotVie
 		return this.maxFrequency;
 	}
 
+    public boolean isConsiderIMD() {
+        return considerIMD;
+    }
+
     protected void calculationFinished(ArrayList<Pilot> calculatedData, boolean error) {
 		this.currentClacThread = null;
 		this.pbSorter.setVisibility(View.INVISIBLE);
@@ -393,12 +401,13 @@ public class RVPilotAdapter extends RecyclerView.Adapter<RVPilotAdapter.PilotVie
 			data = calculatedData;
 			notifyDataSetChanged();
 
-			int minDis = Sorter.getMinDis(data);
+            int[] minDisVector = Sorter.getMinDisVector(data);
 			int maxDis = Sorter.getMaxDis(data);
-			this.tvMinDif.setText(minDis + "  mHz");
-			this.tvMaxDif.setText(maxDis + "  mHz");
+			this.tvMinDif.setText(minDisVector[0] + " mHz");
+			this.tvMaxDif.setText(maxDis + " mHz");
+            this.tvIMD.setText(minDisVector[1] + " mHz / " + minDisVector[2]);
 		} else {
-			MainActivity.showSnackbarMessage("No Channels possible with current frequency range");
+			MainActivity.showSnackbarMessage(R.string.no_values_with_given_frequency_range);
 			resetChannels();
 		}
 	}
@@ -410,8 +419,9 @@ public class RVPilotAdapter extends RecyclerView.Adapter<RVPilotAdapter.PilotVie
             data.get(i).setFrequency(null);
         }
 
-        this.tvMinDif.setText(" -  mHz");
-        this.tvMaxDif.setText(" -  mHz");
+        this.tvMinDif.setText("- mHz");
+        this.tvMaxDif.setText("- mHz");
+        this.tvIMD.setText("- mHz / --");
         notifyDataSetChanged();
     }
 }
@@ -422,12 +432,14 @@ class Calc extends AsyncTask<Void, Void, Void> {
 	RVPilotAdapter rvPilotAdapter;
 	int minFrequency;
 	int maxFrequency;
+    boolean considerIMD;
 	boolean error = false;
 
-	public Calc(ArrayList<Pilot> data, int minFrequency, int maxFrequency, RVPilotAdapter rvPilotAdapter) {
+	public Calc(ArrayList<Pilot> data, int minFrequency, int maxFrequency, boolean considerIMD, RVPilotAdapter rvPilotAdapter) {
 		this.data = data;
 		this.minFrequency = minFrequency;
 		this.maxFrequency = maxFrequency;
+        this.considerIMD = considerIMD;
 		this.rvPilotAdapter = rvPilotAdapter;
 	}
 
@@ -435,7 +447,7 @@ class Calc extends AsyncTask<Void, Void, Void> {
 	protected Void doInBackground(Void... params) {
 
 		try {
-			this.data = Sorter.sort(this.data, this.minFrequency, this.maxFrequency);
+			this.data = Sorter.sort(this.data, this.minFrequency, this.maxFrequency, this.considerIMD);
 		} catch (Exception e) {
 			error = true;
 		}

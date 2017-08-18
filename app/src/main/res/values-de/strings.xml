@@ -52,4 +52,6 @@
     <string name="version_2.1.0_message_5">-Neues Design</string>
     <string name="version_2.1.0_message_6">-Es kann jetzt der Frequenzbereich im Menü eingestellt werden</string>
     <string name="version_2_1_0_pilotmap_1">Pilot Map</string>
+    <string name="considerIMD">IMD berechnen</string>
+    <string name="imd">IMD Abstand / Rating</string>
 </resources>
