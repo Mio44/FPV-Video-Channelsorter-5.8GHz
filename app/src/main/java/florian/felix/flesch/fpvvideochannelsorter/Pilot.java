@@ -108,7 +108,7 @@ public class Pilot
         return this.fixed;
     }
 
-    public int getFiexedChannel() {
+    public int getFixedChannel() {
         return this.fixedChannel;
     }
 

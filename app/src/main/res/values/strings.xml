@@ -40,6 +40,7 @@
     <string name="add_pilot">Add Pilot</string>
     <string name="max_distance">max distance</string>
     <string name="min_distance">min distance</string>
+    <string name="imd">IMD distance / rating</string>
 
     <string name="band">Band:</string>
     <string name="channel">Channel:</string>
@@ -48,6 +49,10 @@
     <string name="change_pilot_name">Change Pilot name:</string>
     <string name="ok">OK</string>
     <string name="cancel">Cancel</string>
+
+    <string name="min" translatable="false">Min</string>
+    <string name="max" translatable="false">Max</string>
+    <string name="considerIMD">Consider IMD</string>
 
     <string name="no_values_with_given_frequency_range">No Channels possible with current frequency range</string>
 

@@ -30,6 +30,7 @@ public class Configuration {
 	private ArrayList<Pilot> pilots;
 	private int minFrequency = 5362;
 	private int maxFrequency = 5945;
+	private boolean considerIMD = true;
 	private String saveName;
 
 	public Configuration(ArrayList<Pilot> pilots, String saveName) {
@@ -37,11 +38,12 @@ public class Configuration {
 		this.saveName = saveName;
 	}
 
-	public Configuration(ArrayList<Pilot> pilots, String saveName, int minFrequency, int maxFrequency) {
+	public Configuration(ArrayList<Pilot> pilots, String saveName, int minFrequency, int maxFrequency, boolean considerIMD) {
 		this.pilots = pilots;
 		this.saveName = saveName;
 		this.minFrequency = minFrequency;
 		this.maxFrequency = maxFrequency;
+		this.considerIMD = considerIMD;
 	}
 
 	public ArrayList<Pilot> getPilots () {
@@ -59,4 +61,6 @@ public class Configuration {
 	public int getMaxFrequency() {
 		return this.maxFrequency;
 	}
+
+	public boolean isConsiderIMD() { return considerIMD; }
 }

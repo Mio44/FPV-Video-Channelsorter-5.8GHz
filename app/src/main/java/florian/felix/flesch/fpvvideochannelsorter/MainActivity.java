@@ -44,6 +44,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.NumberPicker;
 import android.widget.ProgressBar;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
@@ -63,13 +64,14 @@ public class MainActivity extends AppCompatActivity implements NumberPicker.OnVa
 
 	private NumberPicker npFrequencyRangeMin;
 	private NumberPicker npFrequencyRangeMax;
+	private Switch swConsiderIMD;
 
 	@Override
 	protected void onResume() {
 		super.onResume();
 
 		if(config != null) {
-			this.rvPilotAdapter.setData(config.getPilots(), config.getMinFrequency(), config.getMaxFrequency());
+			this.rvPilotAdapter.setData(config.getPilots(), config.getMinFrequency(), config.getMaxFrequency(), config.isConsiderIMD());
 			String message = getString(R.string.config_loaded) + " " + config.getSaveName();
 			System.out.println(message);
 			Snackbar.make(layoutManager.findViewByPosition(0), message, Snackbar.LENGTH_LONG).show();
@@ -77,7 +79,7 @@ public class MainActivity extends AppCompatActivity implements NumberPicker.OnVa
 		}
 	}
 
-	public static void showSnackbarMessage(String message) {
+	public static void showSnackbarMessage(int message) {
 		Snackbar.make(layoutManager.findViewByPosition(0), message, Snackbar.LENGTH_SHORT).show();
 	}
 
@@ -150,7 +152,7 @@ public class MainActivity extends AppCompatActivity implements NumberPicker.OnVa
                                 for (int position : reverseSortedPositions) {
                                     pilots = rvPilotAdapter.getData();
 									pilots.remove(position);
-                                    rvPilotAdapter.setData(pilots, rvPilotAdapter.getMinFrequency(), rvPilotAdapter.getMaxFrequency());
+                                    rvPilotAdapter.setData(pilots, rvPilotAdapter.getMinFrequency(), rvPilotAdapter.getMaxFrequency(), rvPilotAdapter.isConsiderIMD());
                                     rvPilotAdapter.notifyItemRemoved(position);
                                 }
                                 rvPilotAdapter.notifyDataSetChanged();
@@ -162,7 +164,7 @@ public class MainActivity extends AppCompatActivity implements NumberPicker.OnVa
                                 for (int position : reverseSortedPositions) {
 									pilots = rvPilotAdapter.getData();
                                     pilots.remove(position);
-                                    rvPilotAdapter.setData(pilots, rvPilotAdapter.getMinFrequency(), rvPilotAdapter.getMaxFrequency());
+                                    rvPilotAdapter.setData(pilots, rvPilotAdapter.getMinFrequency(), rvPilotAdapter.getMaxFrequency(), rvPilotAdapter.isConsiderIMD());
                                     rvPilotAdapter.notifyItemRemoved(position);
                                 }
                                 rvPilotAdapter.notifyDataSetChanged();
@@ -178,7 +180,7 @@ public class MainActivity extends AppCompatActivity implements NumberPicker.OnVa
         this.pilots.add(pilot1);
         this.pilots.add(pilot2);
 
-        this.rvPilotAdapter = new RVPilotAdapter(this.pilots, 5362, 5945, (TextView)findViewById(R.id.tvMinDifValue), (TextView)findViewById(R.id.tvMaxDifValue), (ProgressBar)findViewById(R.id.pbSorter));
+        this.rvPilotAdapter = new RVPilotAdapter(this.pilots, 5362, 5945, true, (TextView)findViewById(R.id.tvMinDifValue), (TextView)findViewById(R.id.tvMaxDifValue), (TextView)findViewById(R.id.tvIMDValue), (ProgressBar)findViewById(R.id.pbSorter));
         this.rvPilots.setAdapter(this.rvPilotAdapter);
     }
 
@@ -191,7 +193,7 @@ public class MainActivity extends AppCompatActivity implements NumberPicker.OnVa
                 int num = this.pilots.size()+1;
                 Pilot pilot = new Pilot(pilotCount-1, "Pilot "+num, false, false, false, false, false, false);
                 this.pilots.add(pilot);
-				this.rvPilotAdapter.setData(pilots, rvPilotAdapter.getMinFrequency(), rvPilotAdapter.getMaxFrequency());
+				this.rvPilotAdapter.setData(pilots, rvPilotAdapter.getMinFrequency(), rvPilotAdapter.getMaxFrequency(), rvPilotAdapter.isConsiderIMD());
                 this.rvPilotAdapter.notifyDataSetChanged();
             }
             this.rvPilotAdapter.sortChannels();
@@ -200,7 +202,7 @@ public class MainActivity extends AppCompatActivity implements NumberPicker.OnVa
         else if(this.pilots.size() > pilotCount) {
             while(this.pilots.size() > pilotCount) {
                 this.pilots.remove(this.pilots.size()-1);
-				this.rvPilotAdapter.setData(pilots, rvPilotAdapter.getMinFrequency(), rvPilotAdapter.getMaxFrequency());
+				this.rvPilotAdapter.setData(pilots, rvPilotAdapter.getMinFrequency(), rvPilotAdapter.getMaxFrequency(), rvPilotAdapter.isConsiderIMD());
                 this.rvPilotAdapter.notifyDataSetChanged();
             }
             this.rvPilotAdapter.sortChannels();
@@ -283,7 +285,7 @@ public class MainActivity extends AppCompatActivity implements NumberPicker.OnVa
 									if(npFrequencyRangeMin == null || npFrequencyRangeMax == null) {
 										saveState.addConfiguration(new Configuration(data, name));
 									} else {
-										saveState.addConfiguration(new Configuration(data, name, npFrequencyRangeMin.getValue(), npFrequencyRangeMax.getValue()));
+										saveState.addConfiguration(new Configuration(data, name, npFrequencyRangeMin.getValue(), npFrequencyRangeMax.getValue(), swConsiderIMD.isChecked()));
 									}
 
 									String json = gson.toJson(saveState);
@@ -307,7 +309,7 @@ public class MainActivity extends AppCompatActivity implements NumberPicker.OnVa
 							if(npFrequencyRangeMin == null || npFrequencyRangeMax == null) {
 								saveState.addConfiguration(new Configuration(data, name));
 							} else {
-								saveState.addConfiguration(new Configuration(data, name, npFrequencyRangeMin.getValue(), npFrequencyRangeMax.getValue()));
+								saveState.addConfiguration(new Configuration(data, name, npFrequencyRangeMin.getValue(), npFrequencyRangeMax.getValue(), swConsiderIMD.isChecked()));
 							}
 
 							json = gson.toJson(saveState);
@@ -343,7 +345,7 @@ public class MainActivity extends AppCompatActivity implements NumberPicker.OnVa
 
 				@Override
 				public void onClick(DialogInterface dialog, int which) {
-					rvPilotAdapter.setFrequencyRange(npFrequencyRangeMin.getValue(), npFrequencyRangeMax.getValue());
+					rvPilotAdapter.setFrequencyRange(npFrequencyRangeMin.getValue(), npFrequencyRangeMax.getValue(), swConsiderIMD.isChecked());
 				}
 			});
 			builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener(){
@@ -371,11 +373,14 @@ public class MainActivity extends AppCompatActivity implements NumberPicker.OnVa
 			npFrequencyRangeMax.setValue(rvPilotAdapter.getMaxFrequency());
 			npFrequencyRangeMax.setWrapSelectorWheel(false);
 			npFrequencyRangeMax.setOnValueChangedListener(this);
+
+			swConsiderIMD = (Switch) dialog.findViewById(R.id.switchIMD);
+			swConsiderIMD.setChecked(rvPilotAdapter.isConsiderIMD());
 		}
 
         if (id == R.id.action_help) {
 			AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-			builder.setTitle(getString(R.string.help));
+			builder.setTitle(R.string.help);
 			builder.setMessage(getString(R.string.help_1) + "\n\n" + getString(R.string.help_2) + "\n\n" + getString(R.string.help_3) + "\n\n" + getString(R.string.help_4) + "\n\n" + getString(R.string.help_5) + "\n\n" + getString(R.string.help_6));
 
 			builder.setPositiveButton(getString(R.string.ok), new DialogInterface.OnClickListener() {

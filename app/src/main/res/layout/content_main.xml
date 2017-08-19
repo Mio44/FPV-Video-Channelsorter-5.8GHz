@@ -14,48 +14,48 @@
     tools:showIn="@layout/activity_main">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text=" -  mHz"
         android:id="@+id/tvMinDifValue"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="25dp"
-        android:layout_marginTop="8dp" />
-
-    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="@string/min_distance"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="8dp"
+        android:text="- mHz"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
         android:id="@+id/tvMinDif"
-        android:layout_below="@+id/tvMinDifValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginLeft="20dp" />
+        android:layout_below="@+id/tvMinDifValue"
+        android:layout_marginLeft="15dp"
+        android:text="@string/min_distance"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text=" -  mHz"
         android:id="@+id/tvMaxDifValue"
-        android:layout_alignTop="@+id/tvMinDifValue"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginRight="25dp" />
-
-    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="@string/max_distance"
-        android:id="@+id/tvMaxDiv"
-        android:layout_alignTop="@+id/tvMinDif"
-        android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginRight="20dp" />
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/tvMinDifValue"
+        android:layout_marginRight="15dp"
+        android:text="- mHz"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/tvMaxDiv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/tvMinDif"
+        android:layout_marginRight="15dp"
+        android:text="@string/max_distance"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rvPilots"
@@ -84,8 +84,26 @@
         style="?android:attr/progressBarStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/rvPilots"
+        android:visibility="invisible"
+        android:layout_below="@+id/tvMaxDiv"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/tvIMDValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/tvMaxDiv"
         android:layout_alignTop="@+id/tvMinDifValue"
         android:layout_centerHorizontal="true"
-        android:visibility="invisible"/>
+        android:text="- mHz / --"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/tvIMD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvIMDValue"
+        android:layout_centerHorizontal="true"
+        android:text="@string/imd"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
 </RelativeLayout>
