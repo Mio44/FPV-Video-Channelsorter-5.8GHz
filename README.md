@@ -20,4 +20,5 @@ https://play.google.com/store/apps/details?id=florian.felix.flesch.fpvvideochann
 ## Contributers
 
 Felix-Florian Flesch ([lexlix](https://github.com/lexlix)) Project owner
+
 Richard Bartelt ([Mio44](https://github.com/Mio44)) Impemented IMD according to ([etheli.com](http://www.etheli.com/IMD/))
