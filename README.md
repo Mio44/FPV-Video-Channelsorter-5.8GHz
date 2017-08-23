@@ -10,7 +10,7 @@ App to determine the best spread of frequencies for fpv pilots over the 5.8Ghz b
 
 ## Contribute
 
-If you like to contribute to the project make your changes and create a pull request. 
+If you like to contribute to the project make your changes and create a pull request.
 After I approve the changes I will make a new signed build and upload it to the Google Playstore.
 I will add your real name or username from gitlab to the app in the list of contributors if you like.
 The newest version is available here:
@@ -20,3 +20,4 @@ https://play.google.com/store/apps/details?id=florian.felix.flesch.fpvvideochann
 ## Contributers
 
 Felix-Florian Flesch ([lexlix](https://github.com/lexlix)) Project owner
+Richard Bartelt ([Mio44](https://github.com/Mio44)) Impemented IMD according to ([etheli.com](http://www.etheli.com/IMD/))

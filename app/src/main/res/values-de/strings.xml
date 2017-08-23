@@ -27,11 +27,6 @@
     <string name="config_deleted">Konfiguration gelöscht</string>
     <string name="no_config">Noch keine Konfiguration gespeichert</string>
     <string name="load_config_tipps">Tippen um Konfiguration zu laden. Lange drücken um zu löschen.</string>
-    <string name="version_2.0.1_message_2">-Die aktuelle Konfiguration kann jetzt im Menü gespeichert und geladen werden</string>
-    <string name="version_2.0.1_message_3">-Neues Frequenzband</string>
-    <string name="version_2.0.1_message_4">-Feste Frequenz für einen Pilot</string>
-    <string name="version_2.0.1_message_5">-Neues Design</string>
-    <string name="version_2.0.1_message_6">Bugfixes in der Frequenzberechnung</string>
     <string name="help_1">-Wähle die Bänder für jeden Piloten</string>
     <string name="help_2">-Wische nach rechts oder links um einen Piloten zu löschen</string>
     <string name="help_3">-Klicke fixed um eine feste Frequenz für einen Piloten zu setzen</string>
@@ -44,14 +39,10 @@
     <string name="no_values_with_given_frequency_range">Keine Frequenzen möglich mit aktuellem Frequenzbereich</string>
     <string name="close">Close</string>
     <string name="help_6">-Setze den Frequenzbereich im Menü</string>
-    <string name="pilot_map_ad">Wenn dir der Channelsorter gefällt, wird dir bestimmt auch meine neue Webseite Pilot Map gefallen. Eine Weltweite Karte für FPV Piloten!</string>
-    <string name="pilot_map_visit">Pilot Map öffnen</string>
-    <string name="version_2.1.0_message_2">-Die aktuelle Konfiguration kann jetzt im Menü gespeichert und geladen werden</string>
-    <string name="version_2.1.0_message_3">-Neues Frequenzband</string>
-    <string name="version_2.1.0_message_4">-Feste Frequenz für einen Pilot</string>
-    <string name="version_2.1.0_message_5">-Neues Design</string>
-    <string name="version_2.1.0_message_6">-Es kann jetzt der Frequenzbereich im Menü eingestellt werden</string>
-    <string name="version_2_1_0_pilotmap_1">Pilot Map</string>
-    <string name="considerIMD">IMD berechnen</string>
+    <string name="considerIMD">IMD in Berechnung berücksichtigen</string>
     <string name="imd">IMD Abstand / Rating</string>
+    <string name="contributors">Mitwirkende:</string>
+    <string name="help_7">-IMD kann im Frequenzbereich Menü an und aus gestellt werden</string>
+    <string name="imd_info">"Mehr infos über IMD gibt es hier:"</string>
+    <string name="open_source">oder besuche Github um am open source code zu arbeiten:</string>
 </resources>

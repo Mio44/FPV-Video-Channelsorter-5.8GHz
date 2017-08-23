@@ -22,14 +22,17 @@
         <activity
             android:name=".About"
             android:label="@string/title_activity_about"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".FrequencyOverview"
             android:label="@string/title_activity_frequency_overview"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".LoadConfiguration"
             android:label="@string/title_activity_load_configuration"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
     </application>

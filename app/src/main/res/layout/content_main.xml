@@ -85,8 +85,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="invisible"
-        android:layout_below="@+id/tvMaxDiv"
-        android:layout_centerHorizontal="true" />
+        android:layout_above="@+id/rvPilots"
+        android:layout_centerHorizontal="true"/>
 
     <TextView
         android:id="@+id/tvIMDValue"

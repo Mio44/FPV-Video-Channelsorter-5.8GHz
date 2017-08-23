@@ -95,24 +95,6 @@ public class MainActivity extends AppCompatActivity implements NumberPicker.OnVa
 		Gson gson = new Gson();
 
 		String json = mPrefs.getString("save", "");
-		boolean firstStart = mPrefs.getBoolean("2.1.0", true);
-		if(firstStart) {
-			AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-			builder.setTitle(getString(R.string.version_2_1_0_message_1));
-			builder.setMessage(getString(R.string.version_2_1_0_message_2) + "\n\n" + getString(R.string.version_2_1_0_message_3) + "\n\n" + getString(R.string.version_2_1_0_message_4) + "\n\n" + getString(R.string.version_2_1_0_message_5) + "\n\n" + getString(R.string.version_2_1_0_message_6));
-			builder.setPositiveButton(getText(R.string.ok), new DialogInterface.OnClickListener() {
-				@Override
-				public void onClick(DialogInterface dialog, int which) {
-					//Do nothong
-				}
-			});
-
-			builder.show();
-
-			prefsEditor.putBoolean("2.1.0", false);
-			prefsEditor.apply();
-		}
-
 		SaveState saveState = gson.fromJson(json, SaveState.class);
 
 		if(saveState == null) {
@@ -381,7 +363,7 @@ public class MainActivity extends AppCompatActivity implements NumberPicker.OnVa
         if (id == R.id.action_help) {
 			AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
 			builder.setTitle(R.string.help);
-			builder.setMessage(getString(R.string.help_1) + "\n\n" + getString(R.string.help_2) + "\n\n" + getString(R.string.help_3) + "\n\n" + getString(R.string.help_4) + "\n\n" + getString(R.string.help_5) + "\n\n" + getString(R.string.help_6));
+			builder.setMessage(getString(R.string.help_1) + "\n\n" + getString(R.string.help_2) + "\n\n" + getString(R.string.help_3) + "\n\n" + getString(R.string.help_4) + "\n\n" + getString(R.string.help_5) + "\n\n" + getString(R.string.help_6) + "\n\n" + getString(R.string.help_7));
 
 			builder.setPositiveButton(getString(R.string.ok), new DialogInterface.OnClickListener() {
 				@Override

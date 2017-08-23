@@ -17,13 +17,6 @@
     <string name="load_config_tipps">Tap to load config. Long press to delete.</string>
     <string name="name_exists">The name already exists! Overwrite old configuration?</string>
 
-    <string name="version_2.1.0_message_1" translatable="false">Version 2.1</string>
-    <string name="version_2.1.0_message_2">-You can now save and load your current configuration in the menu</string>
-    <string name="version_2.1.0_message_3">-New frequency band (low band)</string>
-    <string name="version_2.1.0_message_4">-You can set a fixed channel for a pilot</string>
-    <string name="version_2.1.0_message_5">-New design</string>
-    <string name="version_2.1.0_message_6">-You can now select a frequency range from the menu</string>
-
     <string name="close">Close</string>
 
     <string name="help_1">-Select the bands for each pilot</string>
@@ -32,10 +25,18 @@
     <string name="help_4">-Tap the name of a pilot to change it</string>
     <string name="help_5">-Save and load Configurations from the menu</string>
     <string name="help_6">-Set the Frequency range from the menu</string>
+    <string name="help_7">-IMD can be turned on and of in the Frequency range menu</string>
 
     <string name="about_text">The App is completely free! If you want to contribute your ideas please write an email to:</string>
     <string name="email">felixfflesch@gmail.com</string>
+    <string name="github_url" translatable="false">https://github.com/lexlix/FPV-Video-Channelsorter-5.8GHz</string>
     <string name="made_by" translatable="false">Made by Felix-Florian Flesch</string>
+    <string name="open_source">or visit the github Page to checkout the open source code:</string>
+    <string name="contributors">Contributors:</string>
+    <string name="felix_flesch" translatable="false">Felix-Florian Flesch</string>
+    <string name="richard_bartelt" translatable="false">Richard Bartelt (IMD)</string>
+    <string name="imd_info">More infos about IMD can be found here:</string>
+    <string name="imd_url" translatable="false">http://www.etheli.com/IMD/</string>
 
     <string name="add_pilot">Add Pilot</string>
     <string name="max_distance">max distance</string>
@@ -52,7 +53,7 @@
 
     <string name="min" translatable="false">Min</string>
     <string name="max" translatable="false">Max</string>
-    <string name="considerIMD">Consider IMD</string>
+    <string name="considerIMD">Consider IMD in calculation</string>
 
     <string name="no_values_with_given_frequency_range">No Channels possible with current frequency range</string>
 
